@@ -1,6 +1,7 @@
 import Navigation from './Navigation';
 import SiteFooter from './SiteFooter';
 import HomeStylePageIntro from './HomeStylePageIntro';
+import RevealMainChildren from './RevealMainChildren';
 
 type BlogPageShellProps = {
   children: React.ReactNode;
@@ -8,10 +9,12 @@ type BlogPageShellProps = {
 
 export default function BlogPageShell({ children }: BlogPageShellProps) {
   return (
-    <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
+    <div className="min-h-screen">
       <Navigation />
       <HomeStylePageIntro />
-      <main>{children}</main>
+      <main>
+        <RevealMainChildren>{children}</RevealMainChildren>
+      </main>
       <SiteFooter />
     </div>
   );

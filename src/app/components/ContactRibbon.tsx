@@ -2,9 +2,30 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { PHOTOGRAPHER_EMAIL } from '@/lib/siteConfig';
+import { PHOTOGRAPHER_EMAIL, PHOTOGRAPHER_PHONE_DISPLAY, PHOTOGRAPHER_PHONE_TEL } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialHubIcon, SocialNetworkIcon } from './SocialMediaIcons';
+
+/** Classic handset — same stroke weight as the envelope */
+function PhoneIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
+      <path
+        d="M7.4 3.7c.4-.4 1-.5 1.5-.4l2 .5c.6.1 1 .6 1.1 1.2l.5 2.1c.1.6-.1 1.1-.6 1.4l-1.4 1c1.1 2 2.7 3.6 4.8 4.8l1-1.4c.3-.5.8-.7 1.4-.6l2.1.5c.6.1 1.1.5 1.2 1.1l.5 2c.1.5 0 1.1-.4 1.5-1.1 1.2-2.9 1.8-4.6 1.3-5.4-1.6-9.8-6-11.4-11.4-.5-1.7.1-3.5 1.3-4.6Z"
+        stroke="currentColor"
+        strokeWidth={1.35}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
 
 /** Linen-fold envelope — gentle curves, same weight as phone */
 function MailIcon({ className }: { className?: string }) {
@@ -73,62 +94,6 @@ function CloseIcon({ className }: { className?: string }) {
     >
       <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" />
     </svg>
-  );
-}
-
-function DesktopSocialRow() {
-  const links = getSocialLinks();
-  if (links.length === 0) return null;
-
-  return (
-    <>
-      <span
-        className="mx-2 hidden h-4 w-px shrink-0 bg-dusty-rose/45 dark:bg-boho-stone/45 sm:block"
-        aria-hidden
-      />
-      <div className="flex shrink-0 items-center justify-center gap-1 sm:justify-start sm:gap-0 sm:pr-1">
-        {links.map((link) => (
-          <a
-            key={link.network}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={link.label}
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-xl p-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:min-w-0 sm:rounded-full sm:p-1"
-          >
-            <IconMat>
-              <SocialNetworkIcon
-                network={link.network}
-                className="h-[15px] w-[15px]"
-              />
-            </IconMat>
-          </a>
-        ))}
-      </div>
-    </>
-  );
-}
-
-/** sm+ — horizontal pill with email and socials */
-function DesktopRibbon() {
-  return (
-    <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 right-3 z-50 hidden sm:bottom-6 sm:left-auto sm:right-6 sm:block">
-      <div className="pointer-events-auto mx-auto flex w-full max-w-full flex-col rounded-2xl border border-boho-sage/25 bg-white/70 py-2 pl-2 pr-2 shadow-sm backdrop-blur-md dark:border-boho-stone/45 dark:bg-boho-ink/55 sm:w-max sm:min-w-[min(100%,28.5rem)] sm:max-w-[calc(100vw-0.75rem)] sm:flex-row sm:items-center sm:rounded-full sm:border-boho-sage/25 sm:bg-white/55 sm:py-1.5 sm:pl-1.5 sm:pr-1.5 sm:dark:bg-boho-ink/50">
-        <a
-          href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
-          aria-label={`Email ${PHOTOGRAPHER_EMAIL}`}
-          className="flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl px-2 py-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:justify-start sm:rounded-full sm:py-1 sm:pl-1 sm:pr-2"
-        >
-          <IconMat>
-            <MailIcon className="h-[15px] w-[15px]" />
-          </IconMat>
-          <span className="min-w-0 break-all text-center font-body text-xs font-medium leading-snug text-coral dark:text-[#e8b896] sm:break-normal sm:text-left sm:text-xs sm:leading-tight">
-            {PHOTOGRAPHER_EMAIL}
-          </span>
-        </a>
-        <DesktopSocialRow />
-      </div>
-    </div>
   );
 }
 
@@ -357,6 +322,23 @@ function MobileContactRibbons() {
         </div>
         <div className="flex flex-col gap-1 px-3 py-4">
           <a
+            href={PHOTOGRAPHER_PHONE_TEL}
+            onClick={() => setContactOpen(false)}
+            className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
+          >
+            <IconMat>
+              <PhoneIcon className="h-[15px] w-[15px]" />
+            </IconMat>
+            <div className="min-w-0">
+              <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
+                Call
+              </p>
+              <p className="font-body text-base font-medium text-coral dark:text-[#e8b896]">
+                {PHOTOGRAPHER_PHONE_DISPLAY}
+              </p>
+            </div>
+          </a>
+          <a
             href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
             onClick={() => setContactOpen(false)}
             className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
@@ -380,10 +362,5 @@ function MobileContactRibbons() {
 }
 
 export default function ContactRibbon() {
-  return (
-    <>
-      <DesktopRibbon />
-      <MobileContactRibbons />
-    </>
-  );
+  return <MobileContactRibbons />;
 }

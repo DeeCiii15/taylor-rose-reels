@@ -7,6 +7,9 @@ import HomeHeroSlideshow from './components/HomeHeroSlideshow';
 import Image from 'next/image';
 import Link from 'next/link';
 import PortfolioHomeGallery from './components/PortfolioHomeGallery';
+import ScrollRevealFrom from './components/ScrollRevealFrom';
+import WelcomeCollage from './components/WelcomeCollage';
+import WelcomeTypewriter from './components/WelcomeTypewriter';
 import { SITE_IMAGES } from '@/lib/siteImages';
 import {
   PHOTOGRAPHER_IMAGE_ALT,
@@ -22,7 +25,7 @@ import {
  */
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
+    <div className="min-h-screen">
       <Navigation />
 
       <main id="home">
@@ -57,7 +60,7 @@ export default function HomePage() {
 
         {/* Breathing room between full-bleed hero & triptych */}
         <div
-          className="relative z-10 border-t border-[#cfc4b2]/60 bg-[#ede8df] py-10 dark:border-boho-stone/50 dark:bg-[#1a1816] md:py-14"
+          className="relative z-[1] border-t border-[#cfc4b2]/60 bg-paper-rule py-10 dark:border-boho-stone/50 md:py-14"
           aria-hidden
         >
           <div className="mx-auto max-w-md border-t border-dashed border-[#b5a892]/70 dark:border-boho-stone/40" />
@@ -65,71 +68,41 @@ export default function HomePage() {
 
         {/* Moodboards = the palette & range you shoot */}
         <section
-          className="border-y border-[#e0d9ce] bg-[#ebe6dc] shadow-[inset_0_1px_0_rgba(255,255,253,0.5)] dark:border-boho-stone/40 dark:bg-boho-bark"
+          className="relative z-0 border-y border-[#e0d9ce] bg-paper-warm shadow-[inset_0_1px_0_rgba(255,255,253,0.5)] dark:border-boho-stone/40"
           aria-label="Inspiration: three frames"
+          data-no-reveal
         >
-          <div className="mx-auto max-w-[2000px]">
-            <div className="grid grid-cols-3 gap-1.5 px-3 pb-4 pt-3 sm:pb-4 md:gap-2 md:px-4 md:pb-16 md:pt-4 lg:gap-3 lg:px-6 lg:pb-20">
-              <div className="relative z-[1] -translate-y-1 rotate-[1.5deg] sm:-translate-y-2 sm:rotate-[2deg] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:-translate-y-4 md:rotate-[-2.5deg] md:rounded-sm">
-                <div className="mood-board-bob relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_6px_20px_rgba(61,52,44,0.12)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
-                  <Image
-                    src={SITE_IMAGES.moodField}
-                    alt="Inspiration one — portrait & light"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 34vw, 33vw"
-                  />
-                </div>
-              </div>
-              <div className="relative z-[2] translate-y-2 rotate-[1.5deg] sm:translate-y-3 sm:rotate-[2deg] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:translate-y-6 md:rotate-[2deg] md:rounded-sm">
-                <div className="mood-board-bob mood-board-bob--b relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_8px_24px_rgba(61,52,44,0.14)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
-                  <Image
-                    src={SITE_IMAGES.moodArch}
-                    alt="Inspiration two — color & mood"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 34vw, 33vw"
-                  />
-                </div>
-              </div>
-              <div className="relative z-[1] -translate-y-0.5 rotate-[1deg] sm:-translate-y-1 sm:rotate-[1deg] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:-translate-y-2 md:rotate-[1.5deg] md:rounded-sm">
-                <div className="mood-board-bob mood-board-bob--c relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_6px_20px_rgba(61,52,44,0.12)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
-                  <Image
-                    src={SITE_IMAGES.moodFilm}
-                    alt="Inspiration three — tone & texture"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 34vw, 33vw"
-                  />
-                </div>
-              </div>
+          <WelcomeCollage>
+            <div className="mx-auto max-w-2xl px-5 py-6 text-center sm:px-6 sm:py-10 md:py-12">
+              <WelcomeTypewriter
+                text="So glad you wandered in."
+                className="font-display text-[1.35rem] font-medium leading-snug text-cream-dark dark:text-cream sm:text-4xl md:text-[2.65rem] md:leading-[1.12]"
+              />
+              <p className="mt-4 font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 sm:mt-6 sm:text-[0.975rem] md:text-base">
+                This little corner of the internet is a slow scroll through the
+                kind of light I love—golden fields, quiet ceremony corners, &
+                film-soft black & white. Based in {PRIMARY_CITY}, I&apos;m a
+                photographer for weddings & portraits across the {PRIMARY_REGION}{' '}
+                & surrounding {PRIMARY_STATE_ABBR} towns like{' '}
+                {SERVICE_AREAS.slice(1, 4).join(', ')}, & beyond. Stay as long as
+                you like; when you&apos;re ready, we&apos;ll dream up a session
+                that feels like you, not a pose list.
+              </p>
             </div>
-          </div>
-          <div className="mx-auto max-w-2xl px-5 py-6 text-center sm:px-6 sm:py-10 md:py-12">
-            <p className="section-eyebrow text-boho-sage">Welcome</p>
-            <p className="font-display mt-3 text-lg leading-snug text-cream-dark dark:text-cream sm:mt-4 sm:text-2xl">
-              So glad you wandered in.
-            </p>
-            <p className="mt-3 font-body text-xs font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 sm:mt-4 sm:text-sm sm:text-base">
-              This little corner of the internet is a slow scroll through the
-              kind of light I love—golden fields, quiet ceremony corners, &
-              film-soft black & white. Based in {PRIMARY_CITY}, I&apos;m a
-              photographer for weddings & portraits across the {PRIMARY_REGION}{' '}
-              & surrounding {PRIMARY_STATE_ABBR} towns like{' '}
-              {SERVICE_AREAS.slice(1, 4).join(', ')}, & beyond. Stay as long as
-              you like; when you&apos;re ready, we&apos;ll dream up a session
-              that feels like you, not a pose list.
-            </p>
-          </div>
+          </WelcomeCollage>
         </section>
 
         {/* 4 — Photographer (Taylor_site) */}
         <section
           id="about"
-          className="scroll-mt-24 px-4 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-28"
+          className="scroll-mt-24 overflow-x-clip px-4 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-28"
+          data-no-reveal
         >
           <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 sm:grid-cols-2 sm:items-center sm:gap-10 lg:gap-20">
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-md min-w-0 sm:mx-0 sm:max-w-lg lg:max-w-none">
+            <ScrollRevealFrom
+              from="left"
+              className="lift-shadow relative mx-auto aspect-[3/4] w-full max-w-md min-w-0 sm:mx-0 sm:max-w-lg lg:max-w-none"
+            >
               <Image
                 src={SITE_IMAGES.photographer}
                 alt={PHOTOGRAPHER_IMAGE_ALT}
@@ -137,8 +110,8 @@ export default function HomePage() {
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
               />
-            </div>
-            <div className="min-w-0 w-full sm:text-left">
+            </ScrollRevealFrom>
+            <ScrollRevealFrom from="right" delayMs={120} className="min-w-0 w-full sm:text-left">
               <p className="section-eyebrow text-boho-sage">Behind the lens</p>
               <h2 className="mt-2 font-display text-[1.35rem] font-medium leading-snug text-cream-dark dark:text-cream sm:mt-4 sm:text-4xl md:text-[2.65rem] md:leading-[1.12]">
                 Every photo tells a story; I'd love to help you tell yours.
@@ -180,14 +153,15 @@ export default function HomePage() {
                   you&apos;ll cherish for years to come.
                 </p>
               </div>
-            </div>
+            </ScrollRevealFrom>
           </div>
         </section>
 
         {/* 5 — More work (portfolio categories) */}
+        <ScrollRevealFrom from="up">
         <section
           id="portfolio"
-          className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-20 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
+          className="scroll-mt-24 border-t border-[#e0d9ce] bg-paper-soft px-6 py-20 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
         >
           <div className="mx-auto max-w-6xl">
             <div className="mb-12 max-w-xl lg:mb-16">
@@ -202,8 +176,11 @@ export default function HomePage() {
             <PortfolioHomeGallery variant="home" />
           </div>
         </section>
+        </ScrollRevealFrom>
 
-        <TestimonialsSection />
+        <ScrollRevealFrom from="up">
+          <TestimonialsSection />
+        </ScrollRevealFrom>
       </main>
 
       <SiteFooter />

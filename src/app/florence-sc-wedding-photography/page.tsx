@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import FlorenceWeddingsJsonLd from '../components/FlorenceWeddingsJsonLd';
+import RevealMainChildren from '../components/RevealMainChildren';
 import { portfolioCategoryHref } from '@/lib/portfolioData';
 import {
   FLORENCE_WEDDING_VENUE_CARDS,
@@ -83,13 +84,17 @@ const FLORENCE_WEDDING_GALLERY: { src: string; alt: string }[] = [
 
 export default function FlorenceWeddingsPage() {
   return (
-    <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
+    <div className="min-h-screen">
       <FlorenceWeddingsJsonLd />
       <Navigation />
 
       <main>
+        <RevealMainChildren>
         {/* Hero */}
-        <section className="relative isolate flex min-h-svh items-end overflow-hidden">
+        <section
+          className="relative isolate flex min-h-svh items-end overflow-hidden"
+          data-no-reveal
+        >
           <Image
             src={FLORENCE_WEDDINGS_HERO_PATH}
             alt={`${PRIMARY_CITY}, ${PRIMARY_STATE} wedding photography by ${SITE_NAME}`}
@@ -139,7 +144,7 @@ export default function FlorenceWeddingsPage() {
 
         {/* Why Florence */}
         <section
-          className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
+          className="scroll-mt-24 border-t border-[#e0d9ce] bg-paper-soft px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
           aria-labelledby="why-florence-heading"
         >
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
@@ -148,7 +153,7 @@ export default function FlorenceWeddingsPage() {
                 {FLORENCE_WEDDING_GALLERY.map((photo) => (
                   <div
                     key={photo.src}
-                    className="relative aspect-[2/3] overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_8px_24px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db] dark:bg-boho-ink dark:ring-boho-stone/30"
+                    className="lift-shadow relative aspect-[2/3] overflow-hidden rounded-[2px] bg-[#e8e3db] ring-1 ring-[#e8e3db] dark:bg-boho-ink dark:ring-boho-stone/30"
                   >
                     <Image
                       src={photo.src}
@@ -245,7 +250,7 @@ export default function FlorenceWeddingsPage() {
             <ul className="mt-12 grid gap-6 sm:grid-cols-2">
               {FLORENCE_VENUES.map((venue) => (
                 <li key={venue.name}>
-                  <div className="flex h-full flex-col rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-7 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-8">
+                  <div className="lift-shadow flex h-full flex-col rounded-2xl border border-[#e0d9ce] bg-[#faf8f4] p-7 ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark dark:ring-boho-stone/25 sm:p-8">
                     <p className="section-eyebrow text-boho-sage">
                       {venue.location}
                     </p>
@@ -335,7 +340,7 @@ export default function FlorenceWeddingsPage() {
         </section>
 
         {/* Closing CTA */}
-        <section className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-14 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-16">
+        <section className="border-t border-[#e0d9ce] bg-paper-soft px-6 py-14 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-16">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl">
               Let&rsquo;s talk about your {PRIMARY_CITY} area wedding
@@ -352,6 +357,7 @@ export default function FlorenceWeddingsPage() {
             </Link>
           </div>
         </section>
+        </RevealMainChildren>
       </main>
 
       <SiteFooter />

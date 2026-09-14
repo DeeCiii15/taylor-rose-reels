@@ -16,8 +16,8 @@ function FaqChevron() {
 }
 
 const SURFACE = {
-  base: 'bg-[#f4f1eb] dark:bg-boho-ink',
-  soft: 'bg-[#f9f7f2] dark:bg-boho-bark',
+  base: 'bg-paper',
+  soft: 'bg-paper-soft',
 } as const;
 
 type ServiceFaqSectionProps = {
@@ -56,7 +56,7 @@ export default function ServiceFaqSection({
           {faqs.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 text-center shadow-sm ring-1 ring-[#e8e3db]/80 transition-[box-shadow] open:shadow-[0_12px_32px_rgba(61,52,44,0.08)] dark:border-boho-stone/40 dark:bg-boho-bark/50 dark:ring-boho-stone/25 dark:open:shadow-[0_12px_32px_rgba(0,0,0,0.2)] sm:text-left"
+              className="group lift-shadow rounded-2xl border border-[#e0d9ce] bg-[#faf8f4] text-center ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark dark:ring-boho-stone/25 sm:text-left"
             >
               <summary className="flex min-h-14 cursor-pointer list-none flex-col items-center gap-2 px-6 py-5 marker:content-none touch-manipulation sm:min-h-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-6 [&::-webkit-details-marker]:hidden">
                 <span className="min-w-0 max-w-md pr-0 font-body text-base font-light leading-[1.8] text-cream-dark sm:max-w-none sm:pr-2 dark:text-cream">

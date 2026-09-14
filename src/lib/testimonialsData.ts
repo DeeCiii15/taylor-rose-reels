@@ -37,7 +37,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
   {
     quote:
       'Taylor has captured engagement photos, bridal portraits, our wedding day, and now pregnancy photos. She has been such a blessing and positive light through all these special milestones. She is so personable and a calming spirit through stressful and chaotic times. She jumps in to help when she can and you can guarantee to catch her on the dance floor at your wedding lol! Taylor feels like a close friend at this point and I could not recommend her enough!!',
-    name: 'Ally Smith',
+    name: 'Alli Smith',
     detail: 'Bridal, Maternity, Engagement & Wedding · August 2026',
     portrait: '/images/Old Picutres/inspiration_2.jpg',
     services: [

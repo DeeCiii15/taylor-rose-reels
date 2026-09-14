@@ -23,18 +23,17 @@ export default function HomeHeroSlideshow({ children }: HomeHeroSlideshowProps) 
   }, []);
 
   return (
-    <section className="relative min-h-svh w-full">
+    <section className="relative min-h-svh w-full" data-no-reveal>
       <div className="absolute inset-0" aria-hidden>
         {HERO_SLIDES.map((slide, idx) => (
           <div
             key={slide.src}
-            className={`absolute inset-0 ${
+            className={`absolute inset-0 overflow-hidden ${
               idx === index ? 'z-[1]' : 'z-0'
             }`}
             style={{
               opacity: idx === index ? 1 : 0,
               transition: `opacity ${FADE_MS}ms ease-out`,
-              transform: 'translateZ(0)',
               backfaceVisibility: 'hidden',
             }}
           >
@@ -43,8 +42,11 @@ export default function HomeHeroSlideshow({ children }: HomeHeroSlideshowProps) 
               src={slide.src}
               alt=""
               fill
-              className="object-cover"
-              style={{ objectPosition: slide.objectPosition }}
+              className="hero-photo-drift object-cover"
+              style={{
+                objectPosition: slide.objectPosition,
+                animationDelay: `${-idx * 7}s`,
+              }}
               sizes="100vw"
               unoptimized
               priority={idx === 0}

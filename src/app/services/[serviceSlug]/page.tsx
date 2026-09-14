@@ -12,7 +12,9 @@ import ServiceFaqJsonLd from '../../components/ServiceFaqJsonLd';
 import ServiceJsonLd from '../../components/ServiceJsonLd';
 import ReviewsJsonLd from '../../components/ReviewsJsonLd';
 import ServiceGallerySection from '../../components/ServiceGallerySection';
+import ServiceInvestmentSection from '../../components/ServiceInvestmentSection';
 import ServiceVenueSuggestions from '../../components/ServiceVenueSuggestions';
+import RevealMainChildren from '../../components/RevealMainChildren';
 import WeddingLocationsMap from '../../components/WeddingLocationsMap';
 import {
   getAllServiceSlugs,
@@ -26,6 +28,7 @@ import {
 import { getServiceBlogPosts } from '@/lib/servicesServer';
 import { pageShareMeta } from '@/lib/shareMeta';
 import { SITE_NAME } from '@/lib/siteConfig';
+import { getServicePricing } from '@/lib/servicePricing';
 
 type ServicePageProps = {
   params: Promise<{ serviceSlug: string }>;
@@ -72,7 +75,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const aboutTopic = service.copyTopic ?? service.navLabel.toLowerCase();
 
   return (
-    <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
+    <div className="min-h-screen">
       <ServiceJsonLd service={service} />
       <ServiceFaqJsonLd faqs={service.faqs} />
       <ReviewsJsonLd testimonials={testimonials} />
@@ -80,6 +83,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <HomeStylePageIntro />
 
       <main>
+        <RevealMainChildren>
         <section className="scroll-mt-24 px-6 py-16 sm:px-10 lg:px-16 lg:py-20">
           <div
             className={`mx-auto grid max-w-6xl gap-8 lg:grid-cols-12 lg:gap-16 ${
@@ -89,7 +93,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             }`}
           >
             <div
-              className={`relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.1)] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35 lg:col-span-5 lg:mx-0 lg:max-w-none ${
+              className={`relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2px] bg-[#e8e3db] lift-shadow ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35 lg:col-span-5 lg:mx-0 lg:max-w-none ${
                 service.slug === 'wedding-photography'
                   ? 'lg:aspect-auto lg:min-h-full'
                   : 'lg:mt-6'
@@ -163,10 +167,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
           shoots={shoots}
         />
 
+        <ServiceInvestmentSection
+          pricing={getServicePricing(service.slug)}
+          ctaLabel={service.ctaButton}
+        />
+
         {service.venueSuggestions ? (
           <ServiceVenueSuggestions
             suggestions={service.venueSuggestions}
-            surface="base"
+            surface="soft"
           />
         ) : null}
 
@@ -174,7 +183,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         {blogPosts.length > 0 && (
           <section
-            className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
+            className="border-t border-[#e0d9ce] bg-paper-soft px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
             aria-labelledby="service-blog-heading"
           >
             <div className="mx-auto max-w-6xl">
@@ -223,7 +232,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           description="Reviews from clients who trusted me with this kind of session. Tap a card to read the full review."
         />
 
-        <section className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-14 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-16">
+        <section className="border-t border-[#e0d9ce] bg-paper-soft px-6 py-14 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-16">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-body text-base font-light text-cream-dark/78 dark:text-cream/72">
               {service.ctaHeadline}
@@ -236,6 +245,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </Link>
           </div>
         </section>
+        </RevealMainChildren>
       </main>
 
       <SiteFooter />

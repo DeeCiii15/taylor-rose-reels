@@ -126,7 +126,7 @@ export default function Navigation() {
 
   const navSurface = onHero
     ? 'border-transparent bg-transparent'
-    : 'border-b border-boho-sage/25 bg-[#faf8f4]/90 shadow-soft backdrop-blur-lg dark:border-boho-stone/40 dark:bg-boho-bark/90';
+    : 'paper-bar border-b border-boho-sage/25 shadow-soft dark:border-boho-stone/40';
 
   const desktopPill = onHero
     ? 'border-white/30 bg-white/15 shadow-sm backdrop-blur-lg dark:border-white/20 dark:bg-black/25'
@@ -142,7 +142,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed left-0 right-0 top-0 z-[60] transition-all duration-300 ${navSurface}`}
+      className={`fixed left-0 right-0 top-0 z-[60] transition-[background-color,border-color,box-shadow,color] duration-300 ${navSurface}`}
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
         <div className="relative flex h-14 shrink-0 items-center justify-between gap-3 md:h-16">

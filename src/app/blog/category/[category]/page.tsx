@@ -55,7 +55,7 @@ export default async function BlogCategoryPage({
 
   return (
     <BlogPageShell>
-      <section className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-20">
+      <section className="scroll-mt-24 border-t border-[#e0d9ce] bg-paper-soft px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-20">
         <div className="mx-auto max-w-6xl">
           <Link
             href="/blog"

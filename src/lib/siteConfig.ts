@@ -56,6 +56,12 @@ export const PHOTOGRAPHER_EMAIL =
   process.env.NEXT_PUBLIC_PHOTOGRAPHER_EMAIL?.trim() ||
   'taylorrosereels@gmail.com';
 
+/** Public inquiry line — city-only NAP (no street). Display matches GBP. */
+export const PHOTOGRAPHER_PHONE_DISPLAY = '843-942-9472';
+/** E.164 for tel: links and LocalBusiness telephone */
+export const PHOTOGRAPHER_PHONE_E164 = '+18439429472';
+export const PHOTOGRAPHER_PHONE_TEL = `tel:${PHOTOGRAPHER_PHONE_E164}`;
+
 export const PHOTOGRAPHER_IMAGE_ALT = `${SITE_NAME}, ${PRIMARY_CITY} ${PRIMARY_STATE_ABBR} wedding & portrait photographer`;
 
 export const SERVICE_AREA_LABEL = `Based in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} · Serving the ${PRIMARY_REGION} & beyond`;

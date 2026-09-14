@@ -3,6 +3,7 @@ import {
   serviceHref,
   type ServiceDef,
 } from '@/lib/servicesData';
+import { getServicePricing } from '@/lib/servicePricing';
 import { getSiteUrl, schemaAreaServed } from '@/lib/siteConfig';
 
 type ServiceJsonLdProps = {
@@ -17,6 +18,18 @@ export default function ServiceJsonLd({ service }: ServiceJsonLdProps) {
   const url = getSiteUrl();
   const pageUrl = `${url}${serviceHref(service.slug)}`;
   const image = `${url}${getServiceHeroImage(service)}`;
+  const pricing = getServicePricing(service.slug);
+  const offers = pricing.collections.map((collection) => ({
+    '@type': 'Offer' as const,
+    name: collection.name,
+    description: collection.detail,
+    price: collection.priceAmount,
+    priceCurrency: 'USD',
+    url: pageUrl,
+    ...(collection.unitText
+      ? { unitText: collection.unitText, unitCode: 'HUR' }
+      : {}),
+  }));
 
   const data = {
     '@context': 'https://schema.org',
@@ -41,6 +54,7 @@ export default function ServiceJsonLd({ service }: ServiceJsonLdProps) {
         image,
         provider: { '@id': `${url}#business` },
         areaServed: schemaAreaServed(),
+        offers,
       },
     ],
   };

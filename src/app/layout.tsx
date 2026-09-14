@@ -107,7 +107,7 @@ export default function RootLayout({
         className={`${lora.variable} ${signatureScript.variable} antialiased`}
       >
         <SiteJsonLd />
-        <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))]">
+        <div className="relative z-10 min-h-dvh overflow-x-clip max-sm:pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))]">
           {children}
           <ContactRibbon />
         </div>

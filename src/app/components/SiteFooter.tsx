@@ -5,7 +5,10 @@ import { FOOTER_SERVICE_LINKS } from '@/lib/servicesData';
 import {
   FLORENCE_WEDDINGS_PATH,
   FLORENCE_WEDDINGS_TITLE_SHORT,
+  PHOTOGRAPHER_PHONE_DISPLAY,
+  PHOTOGRAPHER_PHONE_TEL,
   SERVICE_AREA_LABEL,
+  SITE_NAME,
 } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialNetworkIcon } from './SocialMediaIcons';
@@ -15,16 +18,22 @@ export default function SiteFooter() {
   const socialLinks = getSocialLinks();
 
   return (
-    <footer className="border-t border-[#e0d9ce] px-6 py-12 dark:border-boho-stone/40 sm:px-10">
+    <footer className="paper-bar relative border-t border-boho-sage/25 px-6 py-12 dark:border-boho-stone/40 sm:px-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
-        <div className="flex flex-col items-center">
+        <address className="flex flex-col items-center not-italic">
           <p className="font-script text-3xl text-coral dark:text-[#d4a574] md:text-4xl">
-            Taylor Rose Reels
+            {SITE_NAME}
           </p>
+          <a
+            href={PHOTOGRAPHER_PHONE_TEL}
+            className="mt-3 font-body text-xs font-light leading-relaxed text-cream-dark/65 transition hover:text-coral dark:text-cream/60 dark:hover:text-[#e8b896]"
+          >
+            {PHOTOGRAPHER_PHONE_DISPLAY}
+          </a>
           <p className="mt-3 max-w-md font-body text-xs font-light leading-relaxed text-cream-dark/55 dark:text-cream/50">
             {SERVICE_AREA_LABEL}
           </p>
-        </div>
+        </address>
         <nav
           aria-label="Photography services"
           className="flex max-w-xl flex-col items-center gap-3"

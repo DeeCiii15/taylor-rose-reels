@@ -15,7 +15,7 @@ export default function ServiceGallerySection({
 }: ServiceGallerySectionProps) {
   return (
     <section
-      className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
+      className="border-t border-[#e0d9ce] bg-paper-soft px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
       aria-labelledby="service-galleries-heading"
     >
       <div className="mx-auto max-w-6xl">

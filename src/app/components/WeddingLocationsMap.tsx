@@ -486,7 +486,7 @@ export default function WeddingLocationsMap() {
 
   return (
     <section
-      className="border-t border-[#e0d9ce] bg-[#f4f1eb] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-ink sm:px-10 lg:px-16 lg:py-24"
+      className="border-t border-[#e0d9ce] bg-paper px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
       aria-labelledby="service-locations-heading"
     >
       <div className="mx-auto max-w-6xl">

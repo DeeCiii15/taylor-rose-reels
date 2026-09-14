@@ -93,7 +93,7 @@ export const blogMdxComponents: MDXComponents = {
     if (!src || typeof src !== 'string') return null;
 
     return (
-      <figure className="my-10 overflow-hidden rounded-2xl bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35">
+      <figure className="lift-shadow my-10 overflow-hidden rounded-2xl bg-[#e8e3db] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35">
         <Image
           src={src}
           alt={alt ?? ''}

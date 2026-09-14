@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <BlogPageShell>
       <BlogPostJsonLd post={post} />
 
-      <article className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-20">
+      <article className="scroll-mt-24 border-t border-[#e0d9ce] bg-paper-soft px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <Link
             href="/blog"
@@ -141,7 +141,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
 
           {post.coverImage && (
-            <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db] dark:bg-boho-ink dark:ring-boho-stone/35">
+            <div className="lift-shadow relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl bg-[#e8e3db] ring-1 ring-[#e8e3db] dark:bg-boho-ink dark:ring-boho-stone/35">
               <Image
                 src={post.coverImage}
                 alt={post.coverImageAlt ?? post.title}
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </article>
 
       {relatedPosts.length > 0 && (
-        <section className="border-t border-[#e0d9ce] bg-[#f4f1eb] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-ink sm:px-10 lg:px-16 lg:py-20">
+        <section className="border-t border-[#e0d9ce] bg-paper px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-20">
           <div className="mx-auto max-w-6xl">
             <p className="section-eyebrow text-boho-sage">Keep reading</p>
             <h2 className="mt-3 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl">

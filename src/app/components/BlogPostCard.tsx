@@ -8,7 +8,7 @@ type BlogPostCardProps = {
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/92 shadow-[0_12px_36px_rgba(61,52,44,0.06)] ring-1 ring-[#e8e3db]/80 transition hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(61,52,44,0.1)] dark:border-boho-stone/40 dark:bg-boho-bark/48 dark:ring-boho-stone/25">
+    <article className="lift-shadow group flex h-full flex-col overflow-hidden rounded-2xl border border-[#e0d9ce] bg-[#faf8f4] ring-1 ring-[#e8e3db]/80 transition hover:-translate-y-0.5 dark:border-boho-stone/40 dark:bg-boho-bark dark:ring-boho-stone/25">
       <Link href={`/blog/${post.slug}`} className="flex h-full flex-col">
         <div className="relative aspect-[16/10] overflow-hidden bg-[#e8e3db] dark:bg-boho-ink">
           {post.coverImage ? (

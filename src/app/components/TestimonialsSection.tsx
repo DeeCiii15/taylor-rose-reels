@@ -44,12 +44,12 @@ type TestimonialsSectionProps = {
 
 const SURFACE = {
   base: {
-    section: 'bg-[#f4f1eb] dark:bg-boho-ink',
-    fade: 'from-[#f4f1eb] via-[#f4f1eb]/90 dark:from-boho-ink dark:via-boho-ink/90',
+    section: '',
+    fade: 'from-[#f4f1ea]/25 to-transparent dark:from-[#141210]/30',
   },
   soft: {
-    section: 'bg-[#f9f7f2] dark:bg-boho-bark',
-    fade: 'from-[#f9f7f2] via-[#f9f7f2]/90 dark:from-boho-bark dark:via-boho-bark/90',
+    section: '',
+    fade: 'from-[#f4f1ea]/25 to-transparent dark:from-[#141210]/30',
   },
 } as const;
 
@@ -121,10 +121,10 @@ export default function TestimonialsSection({
           aria-label="Client testimonials — scroll horizontally"
         >
           <div
-            className={`pointer-events-none absolute inset-y-8 left-0 z-10 w-10 bg-gradient-to-r to-transparent sm:w-14 md:w-16 ${band.fade}`}
+            className={`pointer-events-none absolute inset-y-8 left-0 z-10 w-6 bg-gradient-to-r to-transparent sm:w-8 ${band.fade}`}
           />
           <div
-            className={`pointer-events-none absolute inset-y-8 right-0 z-10 w-10 bg-gradient-to-l to-transparent sm:w-14 md:w-16 ${band.fade}`}
+            className={`pointer-events-none absolute inset-y-8 right-0 z-10 w-6 bg-gradient-to-l to-transparent sm:w-8 ${band.fade}`}
           />
 
           <button
@@ -146,7 +146,7 @@ export default function TestimonialsSection({
 
           <div
             ref={testimonialDeckRef}
-            className="scrollbar-hide flex scroll-smooth snap-x snap-mandatory sm:snap-proximity gap-0 overflow-x-auto overflow-y-visible overscroll-x-contain px-12 pb-4 pt-6 [scroll-padding-inline:max(1rem,6vw)] [-webkit-overflow-scrolling:touch] [touch-action:pan-x_pan-y] sm:px-14 sm:pb-6 sm:pt-8 sm:[touch-action:manipulation] md:px-16 md:pb-6"
+            className="scrollbar-hide flex scroll-smooth snap-x snap-mandatory sm:snap-proximity gap-0 overflow-x-auto overflow-y-visible overscroll-x-contain px-12 pb-10 pt-8 [scroll-padding-inline:max(1rem,6vw)] [-webkit-overflow-scrolling:touch] [touch-action:pan-x_pan-y] sm:px-14 sm:pb-12 sm:pt-10 sm:[touch-action:manipulation] md:px-16 md:pb-12"
           >
             {testimonials.map((t, i) => (
               <button
@@ -154,7 +154,7 @@ export default function TestimonialsSection({
                 type="button"
                 style={{ zIndex: i + 1 }}
                 onClick={() => setActiveIndex(i)}
-                className={`w-[min(82vw,19.5rem)] shrink-0 snap-center overflow-visible rounded-2xl bg-[#faf8f4]/92 p-6 text-left shadow-[0_12px_36px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db]/90 transition-[transform,box-shadow] duration-500 ease-out will-change-transform hover:z-30 hover:scale-[1.02] hover:shadow-[0_18px_44px_rgba(61,52,44,0.1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral dark:bg-boho-bark/48 dark:shadow-[0_12px_36px_rgba(0,0,0,0.22)] dark:ring-boho-stone/30 dark:hover:shadow-[0_18px_44px_rgba(0,0,0,0.28)] sm:w-[20.5rem] sm:p-7 md:w-[21rem] ${i > 0 ? '-ml-7 sm:-ml-9 md:-ml-11' : ''} ${TESTIMONIAL_DECK_STYLES[i % TESTIMONIAL_DECK_STYLES.length]}`}
+                className={`lift-shadow w-[min(82vw,19.5rem)] shrink-0 snap-center overflow-visible rounded-2xl bg-[#faf8f4] p-6 text-left ring-1 ring-[#e8e3db]/70 transition-[transform,box-shadow] duration-500 ease-out will-change-transform hover:z-30 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral dark:bg-boho-bark dark:ring-boho-stone/30 sm:w-[20.5rem] sm:p-7 md:w-[21rem] ${i > 0 ? '-ml-5 sm:-ml-7 md:-ml-8' : ''} ${TESTIMONIAL_DECK_STYLES[i % TESTIMONIAL_DECK_STYLES.length]}`}
                 aria-label={`Read full review from ${t.name}`}
               >
                 <p className="font-body line-clamp-[9] text-[0.9rem] font-light italic leading-relaxed text-cream-dark/90 dark:text-cream/88 sm:text-[0.9375rem]">

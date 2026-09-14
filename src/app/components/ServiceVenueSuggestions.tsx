@@ -28,8 +28,8 @@ type ServiceVenueSuggestionsProps = {
 };
 
 const SURFACE = {
-  base: 'bg-[#f4f1eb] dark:bg-boho-ink',
-  soft: 'bg-[#f9f7f2] dark:bg-boho-bark/40',
+  base: 'bg-paper',
+  soft: 'bg-paper-soft',
 } as const;
 
 export default function ServiceVenueSuggestions({
@@ -67,7 +67,7 @@ export default function ServiceVenueSuggestions({
             {suggestions.categories.map((category) => (
               <details
                 key={category.name}
-                className="group rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 shadow-sm ring-1 ring-[#e8e3db]/80 transition-[box-shadow] open:shadow-[0_12px_32px_rgba(61,52,44,0.08)] dark:border-boho-stone/40 dark:bg-boho-bark/50 dark:ring-boho-stone/25 dark:open:shadow-[0_12px_32px_rgba(0,0,0,0.2)]"
+                className="group lift-shadow rounded-2xl border border-[#e0d9ce] bg-[#faf8f4] ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark dark:ring-boho-stone/25"
               >
                 <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 marker:content-none touch-manipulation sm:px-8 sm:py-6 [&::-webkit-details-marker]:hidden">
                   <span className="font-display text-2xl leading-snug text-cream-dark dark:text-cream sm:text-[1.75rem]">

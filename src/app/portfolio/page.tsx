@@ -20,7 +20,7 @@ export default async function PortfolioPage({
   return (
     <PortfolioPageShell>
       <section
-        className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-20 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
+        className="scroll-mt-24 border-t border-[#e0d9ce] bg-paper-soft px-6 py-20 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
         aria-label="Portfolio galleries"
       >
         <div className="mx-auto max-w-6xl">

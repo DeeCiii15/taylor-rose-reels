@@ -2,7 +2,7 @@
 export default function HomeStylePageIntro() {
   return (
     <div
-      className="relative z-10 border-t border-[#cfc4b2]/60 bg-[#ede8df] py-10 dark:border-boho-stone/50 dark:bg-[#1a1816] md:py-14"
+      className="relative z-10 border-t border-[#cfc4b2]/60 bg-paper-rule py-10 dark:border-boho-stone/50 md:py-14"
       aria-hidden
     >
       <div className="mx-auto max-w-md border-t border-dashed border-[#b5a892]/70 dark:border-boho-stone/40" />

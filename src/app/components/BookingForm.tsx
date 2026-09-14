@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm, ValidationError } from '@formspree/react';
-import { PHOTOGRAPHER_EMAIL } from '@/lib/siteConfig';
+import { PHOTOGRAPHER_EMAIL, PHOTOGRAPHER_PHONE_DISPLAY, PHOTOGRAPHER_PHONE_TEL } from '@/lib/siteConfig';
 
 const FORMSPREE_FORM_ID = 'mykrjdqn';
 
@@ -32,8 +32,14 @@ export default function BookingForm({ className }: BookingFormProps) {
           Your message is on its way—I can&rsquo;t wait to read it.
         </p>
         <p className="mt-4 font-body text-base leading-relaxed text-cream-dark/88 dark:text-cream/85 md:text-lg">
-          I&rsquo;ll reply as soon as I can. If you need me sooner, email me
-          directly at{' '}
+          I&rsquo;ll reply as soon as I can. If you need me sooner, call{' '}
+          <a
+            href={PHOTOGRAPHER_PHONE_TEL}
+            className="text-coral underline decoration-coral/40 underline-offset-2 hover:text-coral-dark dark:text-[#e8b896]"
+          >
+            {PHOTOGRAPHER_PHONE_DISPLAY}
+          </a>{' '}
+          or email me directly at{' '}
           <a
             href={`mailto:${PHOTOGRAPHER_EMAIL}`}
             className="text-coral underline decoration-coral/40 underline-offset-2 hover:text-coral-dark dark:text-[#e8b896]"

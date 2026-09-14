@@ -95,7 +95,7 @@ export default function HomePage() {
         {/* 4 — Photographer (Taylor_site) */}
         <section
           id="about"
-          className="scroll-mt-24 overflow-x-clip px-4 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-28"
+          className="scroll-mt-24 overflow-x-clip bg-paper px-4 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-28"
           data-no-reveal
         >
           <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 sm:grid-cols-2 sm:items-center sm:gap-10 lg:gap-20">

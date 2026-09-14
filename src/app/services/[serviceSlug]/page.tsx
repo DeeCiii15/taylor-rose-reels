@@ -84,7 +84,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <main>
         <RevealMainChildren>
-        <section className="scroll-mt-24 px-6 py-16 sm:px-10 lg:px-16 lg:py-20">
+        <section className="scroll-mt-24 bg-paper px-6 py-16 sm:px-10 lg:px-16 lg:py-20">
           <div
             className={`mx-auto grid max-w-6xl gap-8 lg:grid-cols-12 lg:gap-16 ${
               service.slug === 'wedding-photography'

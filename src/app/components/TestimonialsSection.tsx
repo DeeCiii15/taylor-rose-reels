@@ -44,11 +44,11 @@ type TestimonialsSectionProps = {
 
 const SURFACE = {
   base: {
-    section: '',
+    section: 'bg-paper',
     fade: 'from-[#f4f1ea]/25 to-transparent dark:from-[#141210]/30',
   },
   soft: {
-    section: '',
+    section: 'bg-paper-soft',
     fade: 'from-[#f4f1ea]/25 to-transparent dark:from-[#141210]/30',
   },
 } as const;

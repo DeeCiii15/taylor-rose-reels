@@ -77,8 +77,8 @@ export default function WelcomeCollage({ children }: WelcomeCollageProps) {
             ['--collage-spread' as string]: String(midSpread),
           }}
         >
-          <div className="welcome-pop-left relative z-[1] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:rounded-sm">
-            <div className="mood-board-bob lift-shadow relative h-[4.75rem] overflow-hidden rounded-md sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
+          <div className="welcome-pop-left relative z-[1] aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)]">
+            <div className="mood-board-bob lift-shadow relative h-full overflow-hidden rounded-none md:min-h-[min(85vh,900px)]">
               <Image
                 src={SITE_IMAGES.moodField}
                 alt="Inspiration one — portrait & light"
@@ -88,8 +88,8 @@ export default function WelcomeCollage({ children }: WelcomeCollageProps) {
               />
             </div>
           </div>
-          <div className="welcome-pop-mid relative z-[2] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:rounded-sm">
-            <div className="mood-board-bob mood-board-bob--b lift-shadow relative h-[4.75rem] overflow-hidden rounded-md sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
+          <div className="welcome-pop-mid relative z-[2] aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)]">
+            <div className="mood-board-bob mood-board-bob--b lift-shadow relative h-full overflow-hidden rounded-none md:min-h-[min(85vh,900px)]">
               <Image
                 src={SITE_IMAGES.moodArch}
                 alt="Inspiration two — color & mood"
@@ -99,8 +99,8 @@ export default function WelcomeCollage({ children }: WelcomeCollageProps) {
               />
             </div>
           </div>
-          <div className="welcome-pop-right relative z-[1] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:rounded-sm">
-            <div className="mood-board-bob mood-board-bob--c lift-shadow relative h-[4.75rem] overflow-hidden rounded-md sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
+          <div className="welcome-pop-right relative z-[1] aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)]">
+            <div className="mood-board-bob mood-board-bob--c lift-shadow relative h-full overflow-hidden rounded-none md:min-h-[min(85vh,900px)]">
               <Image
                 src={SITE_IMAGES.moodFilm}
                 alt="Inspiration three — tone & texture"

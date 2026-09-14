@@ -152,8 +152,9 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.16;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.38' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 320px 320px;
   mix-blend-mode: multiply;
 }
 
@@ -164,32 +165,32 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 2;
-  opacity: 0.18;
+  opacity: 0.1;
   background-image:
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 3px,
-      rgba(91, 77, 62, 0.03) 3px,
-      rgba(91, 77, 62, 0.03) 4px
+      transparent 7px,
+      rgba(91, 77, 62, 0.018) 7px,
+      rgba(91, 77, 62, 0.018) 8px
     ),
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 5px,
-      rgba(91, 77, 62, 0.022) 5px,
-      rgba(91, 77, 62, 0.022) 6px
+      transparent 9px,
+      rgba(91, 77, 62, 0.014) 9px,
+      rgba(91, 77, 62, 0.014) 10px
     );
   mix-blend-mode: multiply;
 }
 
 html.dark body::before {
-  opacity: 0.14;
+  opacity: 0.07;
   mix-blend-mode: overlay;
 }
 
 html.dark body::after {
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 /* Translucent paper bands — texture from body shows through */
@@ -254,8 +255,9 @@ html.dark .bg-paper-rule {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.16;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.38' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 320px 320px;
   mix-blend-mode: multiply;
 }
 
@@ -265,21 +267,21 @@ html.dark .bg-paper-rule {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.18;
+  opacity: 0.1;
   background-image:
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 3px,
-      rgba(91, 77, 62, 0.03) 3px,
-      rgba(91, 77, 62, 0.03) 4px
+      transparent 7px,
+      rgba(91, 77, 62, 0.018) 7px,
+      rgba(91, 77, 62, 0.018) 8px
     ),
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 5px,
-      rgba(91, 77, 62, 0.022) 5px,
-      rgba(91, 77, 62, 0.022) 6px
+      transparent 9px,
+      rgba(91, 77, 62, 0.014) 9px,
+      rgba(91, 77, 62, 0.014) 10px
     );
   mix-blend-mode: multiply;
 }
@@ -295,12 +297,12 @@ nav.paper-bar {
 }
 
 html.dark .paper-bar::before {
-  opacity: 0.14;
+  opacity: 0.07;
   mix-blend-mode: overlay;
 }
 
 html.dark .paper-bar::after {
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 /* Sections slide up into place as they enter the viewport */
@@ -689,52 +691,53 @@ html {
 /*
   Spread 0: sides stacked on the middle.
   Spread 1: original collage — center dropped, sides kicked out and overlapping.
+  Same fan direction at every breakpoint; only the travel distance scales.
 */
 .welcome-pop-left {
   transform: translateX(
       calc(
-        (1 - var(--left-spread, 1)) * 100% + var(--left-spread, 1) * 10%
+        (1 - var(--left-spread, 1)) * 100% + var(--left-spread, 1) * 8%
       )
     )
-    translateY(calc(var(--left-spread, 1) * -0.25rem))
-    rotate(calc(var(--left-spread, 1) * 1.5deg));
+    translateY(calc(var(--left-spread, 1) * -0.55rem))
+    rotate(calc(var(--left-spread, 1) * -4.5deg));
 }
 .welcome-pop-mid {
-  transform: translateY(calc(var(--mid-spread, 1) * 0.5rem))
-    rotate(calc(var(--mid-spread, 1) * 1.5deg));
+  transform: translateY(calc(var(--mid-spread, 1) * 0.7rem))
+    rotate(calc(var(--mid-spread, 1) * 2.25deg));
 }
 .welcome-pop-right {
   transform: translateX(
       calc(
-        (1 - var(--right-spread, 1)) * -100% + var(--right-spread, 1) * -10%
+        (1 - var(--right-spread, 1)) * -100% + var(--right-spread, 1) * -8%
       )
     )
-    translateY(calc(var(--right-spread, 1) * -0.125rem))
-    rotate(calc(var(--right-spread, 1) * 1deg));
+    translateY(calc(var(--right-spread, 1) * -0.3rem))
+    rotate(calc(var(--right-spread, 1) * 4deg));
 }
 
 @media (min-width: 640px) {
   .welcome-pop-left {
     transform: translateX(
         calc(
-          (1 - var(--left-spread, 1)) * 100% + var(--left-spread, 1) * 10%
+          (1 - var(--left-spread, 1)) * 100% + var(--left-spread, 1) * 8%
         )
       )
-      translateY(calc(var(--left-spread, 1) * -0.5rem))
-      rotate(calc(var(--left-spread, 1) * 2deg));
+      translateY(calc(var(--left-spread, 1) * -1rem))
+      rotate(calc(var(--left-spread, 1) * -4.5deg));
   }
   .welcome-pop-mid {
-    transform: translateY(calc(var(--mid-spread, 1) * 0.75rem))
-      rotate(calc(var(--mid-spread, 1) * 2deg));
+    transform: translateY(calc(var(--mid-spread, 1) * 1.25rem))
+      rotate(calc(var(--mid-spread, 1) * 2.25deg));
   }
   .welcome-pop-right {
     transform: translateX(
         calc(
-          (1 - var(--right-spread, 1)) * -100% + var(--right-spread, 1) * -10%
+          (1 - var(--right-spread, 1)) * -100% + var(--right-spread, 1) * -8%
         )
       )
-      translateY(calc(var(--right-spread, 1) * -0.25rem))
-      rotate(calc(var(--right-spread, 1) * 1deg));
+      translateY(calc(var(--right-spread, 1) * -0.5rem))
+      rotate(calc(var(--right-spread, 1) * 4deg));
   }
 }
 

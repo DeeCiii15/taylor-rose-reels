@@ -163,21 +163,33 @@ function MobileContactRibbons() {
         onClick={closeFabMenu}
       />
 
-      {/* Branch layout: both satellites share bottom-right with main; translate = diagonal “twigs” */}
+      {/* Branch layout: satellites share bottom-right with the main FAB */}
       <div
-        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(9.25rem,calc(100dvh-6rem))] w-[min(8.75rem,calc(100vw-1.5rem))]"
+        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(11.75rem,calc(100dvh-6rem))] w-[min(10.75rem,calc(100vw-1.5rem))]"
         role="group"
         aria-label="Contact & social"
       >
         <div className="pointer-events-none relative h-full w-full">
           {fabMenuOpen && (
             <>
+              <a
+                href={PHOTOGRAPHER_PHONE_TEL}
+                onClick={closeFabMenu}
+                aria-label={`Call ${PHOTOGRAPHER_PHONE_DISPLAY}`}
+                className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${
+                  hasSocials
+                    ? '-translate-x-[0.15rem] -translate-y-[5.35rem]'
+                    : '-translate-x-[1.95rem] -translate-y-[4.65rem]'
+                } ${fabBubbleClass}`}
+              >
+                <PhoneIcon className="h-6 w-6" />
+              </a>
               {hasSocials && (
                 <button
                   type="button"
                   onClick={openSocial}
                   aria-label="Open social links"
-                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[1.95rem] -translate-y-[4.65rem] ${fabBubbleClass}`}
+                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[3.7rem] -translate-y-[3.7rem] ${fabBubbleClass}`}
                 >
                   <SocialHubIcon className="h-6 w-6" />
                 </button>
@@ -186,7 +198,11 @@ function MobileContactRibbons() {
                 type="button"
                 onClick={openContact}
                 aria-label="Open contact options"
-                className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${hasSocials ? '-translate-x-[4.45rem] -translate-y-[1.2rem]' : '-translate-x-[3.85rem] -translate-y-[2.65rem]'} ${fabBubbleClass}`}
+                className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${
+                  hasSocials
+                    ? '-translate-x-[5.35rem] -translate-y-[0.2rem]'
+                    : '-translate-x-[4.45rem] -translate-y-[1.2rem]'
+                } ${fabBubbleClass}`}
               >
                 <MailIcon className="h-6 w-6" />
               </button>
